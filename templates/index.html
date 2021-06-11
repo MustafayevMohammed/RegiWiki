@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block body %}
+{% if areas %}
+
+{% for area in areas %}
+{{area.title}}
+<hr>
+{{area.content}}
+<hr><hr>
+<img src="{{ area.image.url}}" alt="sekil">
+{% endfor %}
+
+{% endif %}
+
+{% endblock body %}
