@@ -7,4 +7,5 @@ class RegionAdmin(admin.ModelAdmin):
 
 @admin.register(models.RayonModel)
 class RayonAdmin(admin.ModelAdmin):
-    list_display = ("region","ad","sahe","ehali")
+    list_display = ["ad","region","sahe","ehali"]
+    list_display_links = ["ad","region","sahe","ehali"]
