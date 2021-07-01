@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models.deletion import CASCADE
-from django.db.models.fields import TextField
+from django.db.models.expressions import Case
+from django.db.models.fields import CharField, TextField
 from django.db.models.fields.related import ForeignKey, OneToOneField
 
 # Create your models here.
@@ -24,4 +25,21 @@ class RayonModel(models.Model):
     def __str__(self):
         return self.ad
     
+    
+class CommentModel(models.Model):
+    rayon = models.ForeignKey("Rayonmodel",related_name="comments",on_delete=CASCADE)
+    basliq = models.CharField(max_length=120,verbose_name="Basliq:")
+    mezmun = models.TextField(verbose_name="Mezmun:")
+    created_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.basliq
+    
+class ConversationModel(models.Model):
+    comment = models.ForeignKey("CommentModel",related_name="conversations",on_delete=CASCADE)
+    mezmun = models.TextField(verbose_name="Mezmun:")
+    created_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.mezmun
     

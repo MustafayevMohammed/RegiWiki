@@ -9,3 +9,11 @@ class RegionAdmin(admin.ModelAdmin):
 class RayonAdmin(admin.ModelAdmin):
     list_display = ["ad","region","sahe","ehali"]
     list_display_links = ["ad","region","sahe","ehali"]
+
+@admin.register(models.CommentModel)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ["rayon","basliq"]
+
+@admin.register(models.ConversationModel)
+class ConversationModel(admin.ModelAdmin):
+    list_display = ["comment","mezmun"]
