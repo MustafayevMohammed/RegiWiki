@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}<title>Comment Elave Et</title>{% endblock title %}
+
+{% block body %}
+<link rel="stylesheet" href="{% static 'style3.css' %}">
+
+<form method="post" action="{% url 'areas:addcomment' %}" enctype="multipart/form-data">
+    <div class="container">
+        {% csrf_token %}
+        {{form|crispy}}
+        <input type="submit" value="Elave Et" class="btn btn-danger btn-block">
+    </div>
+</form>
+{% endblock body %}

@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "areas",
+    "crispy_forms",
+    "user",
 ]
 
 MIDDLEWARE = [
@@ -124,3 +126,8 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
     '/var/www/static/',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+AUTH_USER_MODEL = 'user.CustomUserModel'
