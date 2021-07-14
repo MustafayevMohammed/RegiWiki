@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}Giris Edin{% endblock title %}
+
+{% block body %}
+<link rel="stylesheet" href="{% static 'login.css' %}">
+<form action="" method="post">
+    <div class="container">
+        <h2 style="text-align:center; color:white;">Giris Et</h2>
+        {% csrf_token %}
+        {{form|crispy}}
+        <hr>        
+        <button class="btn btn-block btn-danger" type="submit">Giris Et</button>
+        <hr>
+        <p style="color:white; text-align:center;">Hesabiniz Yoxdur? <a style="color:#E84D54;" href="{% url 'user:register' %}">Qeydiyatdan Kec</a></p>
+    </div>        
+
+</form>
+{% endblock body %}
+

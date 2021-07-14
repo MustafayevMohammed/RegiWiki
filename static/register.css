@@ -1,0 +1,63 @@
+body{
+    background-color: #363a88;
+}
+.fields{
+    background-color: #494eb8 ;
+    color: white;
+
+}
+
+.fields:hover{
+    background-color: #494eb8;
+    color: white;
+
+}
+
+.fields:focus{
+    background-color: #494eb8;
+    color: white;
+}
+.passfields{
+    background-color: #494eb8 ;
+    color: white;
+
+}
+
+.passfields:hover{
+    background-color: #494eb8;
+    color: white;
+
+}
+
+.passfields:focus{
+    background-color: #494eb8;
+    color: white;
+}
+
+
+.requiredField{
+    color: white;
+}
+.asteriskField{
+    color: #E84D54;
+}
+
+.container{
+    margin-top: 30px;
+    background-color: #45488d;
+    border-radius: 5px;
+    padding-top: 30px;
+    padding-bottom: 15px;
+}
+
+label[for=id_password1]{
+    padding-left: 180px;
+}
+
+label[for=id_password2]{
+    padding-left: 180px;
+}
+
+label[for=id_image]{
+    color: white;
+}

@@ -7,7 +7,10 @@ class CommentForm(forms.ModelForm):
         widgets = {
             "basliq" : forms.TextInput(attrs={'class':'fields'}),
             "rayon" : forms.Select(attrs={'class':'fields'}),
-            "mezmun" :forms.Textarea(attrs={'class':'fields'}),
+            "mezmun" :forms.Textarea(attrs={'class':'fields',
+            'cols':81,
+            'rows':8,
+            'style':'resize:none;'}),
             "sekil" : forms.ClearableFileInput(attrs={'class':'fields'})
         }
         model = models.CommentModel

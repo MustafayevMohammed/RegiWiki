@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Hesabinizi Yaradin{% endblock title %}
+{% block body %}
+
+<link rel="stylesheet" href="{% static 'register.css' %}">
+{% if form.errors %}
+<div class="alert alert-danger outter-error">
+  <div class="error-fields">
+    <h4>Please fix the following errors</h4>
+    <ul>
+      {% for field in form %}
+      {% if field.errors %}
+      {% for error in field.errors %}
+      <li><a href="#id_{{ field.name }}" class="error">{{ error|escape }}</a></li>
+      {% endfor %}
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+  {% if form.non_field_errors %}
+  {{ form.non_field_errors }}
+  {% endif %}
+</div>
+{% endif %}
+
+<form method="post" action="{% url 'user:register' %}" enctype="multipart/form-data">
+    <div class="container">
+        <h2 style="text-align:center; color:white;">Qeydiyatdan Kec</h2>
+        {% csrf_token %}
+        {{form|crispy}}
+        <hr>
+        <input type="submit" value="Elave Et" class="btn btn-danger btn-block">
+        <hr>
+        <p style="color:white; text-align:center;">Hesabiniz Var? <a style="color:#E84D54;" href="{% url 'user:login' %}">Giris Edin</a></p>
+
+    </div>
+</form>
+{% endblock body %}
