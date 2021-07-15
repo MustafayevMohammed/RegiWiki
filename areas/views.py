@@ -1,6 +1,8 @@
-from django.db.models.expressions import F
 from django.shortcuts import render,redirect
 from . import forms
+from areas.models import CommentModel
+from django.contrib import messages
+
 
 # Create your views here.
 def index(request):
@@ -22,3 +24,25 @@ def addcomment(request):
         "form":form
     }
     return render(request,"addcomment.html",context)
+
+def deletecomment(request,id):
+    comment = CommentModel.objects.get(id=id)
+    comment.delete()
+    messages.success(request ,"Comment Silindi:)")
+    return redirect("user:profile")
+
+def updatecomment(request,id):
+    comment = CommentModel.objects.get(id=id)
+    form = forms.CommentForm(instance=comment)
+    
+    if request.method == "POST":
+        form = forms.CommentForm(request.POST,instance=comment)
+        if form.is_valid():
+            form.save()
+            return redirect("/user/profile/")
+    
+    context = {
+        "form":form
+    }
+    return render(request,"update_task.html",context)
+

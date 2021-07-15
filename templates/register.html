@@ -25,7 +25,7 @@
 </div>
 {% endif %}
 
-<form method="post" action="{% url 'user:register' %}" enctype="multipart/form-data">
+<form method="post" action="{% url 'user:register' %}">
     <div class="container">
         <h2 style="text-align:center; color:white;">Qeydiyatdan Kec</h2>
         {% csrf_token %}

@@ -1,0 +1,30 @@
+body{
+    background-color: #363a88;
+}
+.fields{
+    background-color: #494eb8 ;
+    color: white;
+
+}
+
+.fields:hover{
+    background-color: #494eb8;
+    color: white;
+
+}
+
+.fields:focus{
+    background-color: #494eb8;
+    color: white;
+}
+
+.requiredField{
+    color: white;
+}
+.asteriskField{
+    color: #E84D54;
+}
+
+.container{
+    padding-top: 40px;
+}

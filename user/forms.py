@@ -8,7 +8,7 @@ from .models import CustomUserModel
 
 class RegisterForm(UserCreationForm):
 
-    image = forms.FileField(required=False,label="Image*",widget=forms.FileInput(attrs={'class':'fields'}))
+    #image = forms.FileField(required=False,label="Image*",widget=forms.FileInput(attrs={'class':'fields'}))
     email = forms.EmailField(widget=forms.EmailInput(attrs={'class':'fields'}))
     username = forms.CharField(widget=forms.TextInput(attrs={'class':'fields'}))
     
@@ -23,7 +23,7 @@ class RegisterForm(UserCreationForm):
 
     class Meta:
         model = CustomUserModel
-        fields = ["username","email","image","password1","password2"]
+        fields = ["username","email","password1","password2"]
 
 class LoginForm(forms.Form):
     username = forms.CharField(required=True,widget=forms.TextInput(attrs={'class':'fields'}))

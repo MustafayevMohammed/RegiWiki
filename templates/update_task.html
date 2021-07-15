@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+    <link rel="stylesheet" href="{% static 'update.css' %}">
+    <form method="post" action="" enctype="multipart/form-data">
+        <div class="container">
+            {% csrf_token %}
+            {{form|crispy}}
+            <input type="submit" value="Elave Et" class="btn btn-danger btn-block">
+        </div>
+{% endblock body %}

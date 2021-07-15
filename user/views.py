@@ -3,6 +3,8 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login
 from django.contrib.auth import logout as django_logout
 from . import forms
+from django.contrib import messages
+from areas.models import CommentModel
 # Create your views here.
 
 def need_account(request):
@@ -20,7 +22,8 @@ def register(request):
         form = forms.RegisterForm(request.POST)
         if form.is_valid:
             form.save()
-            return redirect("areas:index")
+            messages.success(request,"Hesab Ugurla Yaradildi Indi Yaratdiginiz Hesaba Giris Etmelisiniz :)")
+            return redirect("user:login")
     context = {
     "form":form
     }
@@ -45,3 +48,12 @@ def loginPage(request):
         "form":form
     }
     return render(request,"login.html",context)
+
+
+def profile(request):
+    comments = CommentModel.objects.filter(yazan=request.user)
+
+    context = {
+        "comments":comments
+    }
+    return render(request,"profile.html",context)

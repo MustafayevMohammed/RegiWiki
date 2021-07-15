@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}Profil{% endblock title %}
+
+{% block body %}
+<link rel="stylesheet" href="{% static 'profile.css' %}">
+<section>
+    <div class="profile_pic">
+        <img src="{{request.user.prophile_photo.url}}">
+    </div>
+    <div class="username">
+        {{request.user.username}}
+    </div>
+</section>
+
+<hr>
+<h2 style="color:white; text-align:center;">Yazilariniz</h2>
+<hr>
+<div class="context">
+    {% if messages %}
+    <div class="alert alert-success" role="alert" style="text-align:center;">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if comments %}
+    {% for comment in comments %}
+    <div class="container">
+        <div class="title">
+            {{comment.basliq}} | {{comment.rayon}}
+        </div>
+        <br>
+
+        <div class="comments">
+            <p>
+                {{comment.mezmun}}
+            </p>
+        </div>
+        <hr>
+        <div class="buttons">
+            <a class="btn btn-primary" href="{% url 'areas:update_comment' comment.id %}">Guncelle</a>
+            <a class="btn btn-danger" href="{% url 'areas:delete_comment' comment.id %}">Sil</a>
+        </div>
+    </div>
+    <hr>
+    {% endfor %}
+    {% else %}
+    <div class="alert alert-info">
+        Bir Commentiniz Yoxdur
+    </div>
+    {% endif %}
+</div>
+{% endblock body %}
