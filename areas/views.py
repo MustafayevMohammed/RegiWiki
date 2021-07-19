@@ -1,4 +1,6 @@
 from django.shortcuts import render,redirect
+
+from areas import models
 from . import forms
 from areas.models import CommentModel
 from django.contrib import messages
@@ -46,3 +48,12 @@ def updatecomment(request,id):
     }
     return render(request,"update_task.html",context)
 
+
+def areas(request):
+    areas = models.RayonModel.objects.all()
+
+    context = {
+        "areas":areas
+    }
+
+    return render(request,"areas.html",context)

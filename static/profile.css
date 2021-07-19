@@ -5,9 +5,23 @@ img{
 }
 
 .profile_pic{
-    text-align: center;
+    display: inline-block;
+    padding-left: 340px;
 
 }
+
+.stats{
+    display: inline-block;
+    font-size: 18px;
+    color: white;
+    margin-left: 20px;
+    padding-top: 90px;
+}
+
+.stat-num{
+    color: #E84D54;
+}
+
 body{
     background-color: #363a88;
 }

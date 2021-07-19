@@ -5,6 +5,7 @@ from django.contrib.auth import logout as django_logout
 from . import forms
 from django.contrib import messages
 from areas.models import CommentModel
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def need_account(request):
@@ -49,9 +50,10 @@ def loginPage(request):
     }
     return render(request,"login.html",context)
 
-
+@login_required(login_url="user:need_account")
 def profile(request):
     comments = CommentModel.objects.filter(yazan=request.user)
+    # comments = CommentModel.objects.filter(yazan=request.user)
 
     context = {
         "comments":comments

@@ -5,9 +5,15 @@
 {% block body %}
 <link rel="stylesheet" href="{% static 'profile.css' %}">
 <section>
-    <div class="profile_pic">
+    
+    <span class="stats">
+        Yazdiginiz Comment Sayi:<span class="stat-num">{{comments.count}}</span>
+
+    </span>
+    
+    <span class="profile_pic">
         <img src="{{request.user.prophile_photo.url}}">
-    </div>
+    </span>
     <div class="username">
         {{request.user.username}}
     </div>

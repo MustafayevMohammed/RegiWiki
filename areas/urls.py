@@ -8,4 +8,5 @@ urlpatterns = [
     path("addcomment/",views.addcomment,name="addcomment"),
     path("delete-comment/<id>",views.deletecomment,name="delete_comment"),
     path("update-task/<id>",views.updatecomment,name="update_comment"),
+    path("areas/",views.areas,name="areas"),
 ]

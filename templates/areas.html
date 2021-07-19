@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}Rayonlar{% endblock title %}
+
+{% block body %}
+    <link rel="stylesheet" href="{% static 'areas.css' %}">
+    {% comment %} <h2>Rayonlar:</h2> {% endcomment %}
+        <div class="rayonlar container">
+            <div class="row">
+                {% for area in areas %}
+                    <div class="rayon col-3">
+                        {{area}}:
+                        <hr>
+                        {{area.melumat|truncatewords:10 }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+{% endblock body %}
