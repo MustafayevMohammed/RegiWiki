@@ -3,17 +3,55 @@ body{
 }
 
 
-.rayon{
+.card{
     color: white;
     border: 1px solid #E84D54;
     border-radius: 6px;
     margin: 6px;
-    padding-top: 10px;
-    padding-right: 20px;
-    padding-bottom: 15px;
-    padding-left: 15px;
+    background-color: #363a88;
+    margin-top: 17px;
+    
+
 }
 
 .rayonlar{
-    margin-left: 150px;
+    padding-bottom: 30px;
+}
+
+
+
+img{
+    background-size: cover;
+    height: 180px;
+}
+ 
+
+.search-box{
+    text-align: center;
+    padding-left: 20px;
+}
+
+.search-txt{
+    padding-top: 3px;
+    padding-right: 85px;
+    padding-bottom: 3px;
+    padding-left: 10px;    
+    border-radius: 4px;
+    background-color: #4f5292;
+    border: 1px solid #E84D54;
+    outline: none;
+    color: white;
+}
+
+.search-btn{
+    color: #E84D54;
+    width: 15px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+
+.search-btn:hover{
+    color: #E84D54;
+    padding-left:3px;
 }

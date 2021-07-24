@@ -1,0 +1,46 @@
+body{
+    background-color: #363a88;
+    color: white;
+}
+
+.title{
+    text-align: center;
+}
+
+img{
+    border: 1px solid #E84D54;
+    height: 400px;
+    max-height: 400px;
+    border-radius: 5px;
+    justify-content: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+
+.comments{
+    padding-bottom: 70px;
+}
+
+.comment{
+    background-color: #4f5292;
+    padding: 16px;
+    border-radius: 6px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.comment-title{
+    text-align: center;
+}
+
+.comment-date{
+    float: right;
+    opacity: 0.8;
+}
+
+.comment-author{
+    opacity: 0.8;
+}

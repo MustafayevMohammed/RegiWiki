@@ -5,16 +5,83 @@
 
 {% block body %}
     <link rel="stylesheet" href="{% static 'areas.css' %}">
-    {% comment %} <h2>Rayonlar:</h2> {% endcomment %}
-        <div class="rayonlar container">
-            <div class="row">
-                {% for area in areas %}
-                    <div class="rayon col-3">
-                        {{area}}:
-                        <hr>
-                        {{area.melumat|truncatewords:10 }}
-                    </div>
-                {% endfor %}
-            </div>
+
+    <style>
+        ::placeholder{
+            color:white;
+            opacity: 0.7;
+        }
+    
+    </style>
+    <form action="{% url 'areas:areas' %}">
+        <div class="search-box">
+            <input class="search-txt" type="text" name="sorgu" placeholder="Rayon Axtarin" id="id_search">
+            <a class="search-btn" href="{% url 'areas:areas' %}">
+                <i class="fas fa-home"></i>
+            </a>
+            <p style="color:white; font-size:13px; opacity:0.8;">Rayon adi yazandan sonra 'ENTER' duymesine toxunun</p>
+
         </div>
+    </form>
+
+    <h2 style="text-align:center; color:white;">Rayonlar/Seherler</h2>
+    <div class="container rayonlar">
+        <div class="row">
+            {% for area in areas %}
+                <div class="col-4">
+                    <div class="card-group">
+                        <div class="card">
+                            <img class="card-img-top card-img" src="{{area.sekil.url}}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">{{area}}</h5>
+                                <p class="card-text">{{area.melumat|truncatechars:170}}
+                                    <hr>
+                                    <a href="{% url 'areas:area_detail' area.id %}" class="button btn btn-danger btn-block btn-sm">Etrafli Oxu</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="container">
+        <nav aria-label="...">
+        <ul class="pagination justify-content-end">
+            {% if areas.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?sehife={{areas.previous_page_number}}" tabindex="-1">Evvelki</a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link ">Evvelki</span>
+                </li>
+            {% endif %}
+
+            
+            {% for sehife in areas.paginator.page_range %}
+                <li class="{% if areas.number == sehife  %}active{% endif %} page-item">
+                    <a href="?sehife={{sehife}}" class="page-link">{{ sehife }}</a>
+                </li>
+            {% endfor %}
+
+            {% if areas.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?sehife={{areas.next_page_number}}">Sonraki</a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link" href="#">Sonraki</a>
+                </li>
+            {% endif %}
+
+
+
+        </ul>
+    </nav>
+
+    </div>
+
+
 {% endblock body %}

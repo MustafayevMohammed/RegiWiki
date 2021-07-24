@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}{{area}} Rayonu/Seheri{% endblock title %}
+
+{% block body %}
+    <link rel="stylesheet" href="{% static 'detail.css' %}">
+
+    <div class="container">
+        <div class="rayon">
+            <div class="title">
+                <h3>{{area.ad}}</h3>
+            </div>
+            <div class="rayon-sekil">
+                <img src="{{area.sekil.url}}" alt="">
+            </div>
+            <hr>
+            <div class="context">
+                <p>{{area.melumat}}</p>
+            </div>
+        </div>
+        <hr>
+        <h4 style="text-align:center;">{{area}} Rayonu Haqqinda Kommentler</h3>
+    </div>
+    <hr>
+    <div class="comments">
+        {% if comments %}
+            {% for comment in comments %}
+                <div class="comment container">
+                    <div class="comment-title">
+                        <h5>
+                            {{comment.basliq}}
+                        </h5>
+                    </div>   
+
+                    <div class="comment-context">
+                        <p>
+                            {{comment.mezmun}}
+                        </p>
+                    </div>
+                    <hr>
+                    <span class="comment-author">
+                        {{comment.yazan}}
+                    </span>
+                    
+                    <span class="comment-date">
+                        {{comment.created_date}}
+                    </span>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div style="text-align:center;" class="alert alert-danger">{{area}} Haqqinda Hec Bir Komment Yoxdur</div>
+        {% endif %}
+        <hr>
+        <div class="add-comment container">
+            <a href="{% url 'areas:addcomment' %}" class="btn btn-block btn-danger">Komment Elave Et</a>
+        </div>
+    </div>
+{% endblock body %}

@@ -1,10 +1,10 @@
 from django.shortcuts import render,redirect
-
+from django.core.paginator import Paginator
 from areas import models
 from . import forms
 from areas.models import CommentModel
 from django.contrib import messages
-
+from django.db.models import Q
 
 # Create your views here.
 def index(request):
@@ -50,10 +50,29 @@ def updatecomment(request,id):
 
 
 def areas(request):
+    sorgu = request.GET.get('sorgu')
     areas = models.RayonModel.objects.all()
+    if sorgu:
+        areas = areas.filter(
+            Q(ad__icontains=sorgu)
+        ).distinct()
+
+    sehife = request.GET.get("sehife")
+    paginator = Paginator(areas,12)
+
 
     context = {
-        "areas":areas
+        "areas":paginator.get_page(sehife)
     }
-
     return render(request,"areas.html",context)
+
+
+def area_detail(request,id):
+    area = models.RayonModel.objects.get(id=id)
+    comments = models.CommentModel.objects.filter(rayon=area)
+    
+    context = {
+        "area":area,
+        "comments":comments
+    }
+    return render(request,"area_detail.html",context)

@@ -25,7 +25,7 @@ SECRET_KEY = 'hz_ktqm2*$lt$ata_plj!ce#(8cu4nolu)zu30*ai4o#1x9(4i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
