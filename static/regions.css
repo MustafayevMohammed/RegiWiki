@@ -1,0 +1,26 @@
+body{
+    background-color: #363a88;
+}
+
+.container{
+    background-color: #4f5292;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+h4{
+    text-align: center;
+}
+
+.region-rayonlari-child{
+    color: #E84D54;
+}
+
+.region-melumat-sahe-child{
+    color: #E84D54;
+}
+
+.region-melumat-ehali-child{
+    color: #E84D54;
+}

@@ -4,13 +4,15 @@ from areas import models
 from . import forms
 from areas.models import CommentModel
 from django.contrib import messages
-from django.db.models import Q
+from django.db.models import Q, fields
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 def index(request):
     return render(request,"index.html")
 
-
+@login_required(login_url="user:need_account")
 def addcomment(request):
     form = forms.CommentForm()
 
@@ -27,12 +29,17 @@ def addcomment(request):
     }
     return render(request,"addcomment.html",context)
 
+
+@login_required(login_url="user:need_account")
 def deletecomment(request,id):
     comment = CommentModel.objects.get(id=id)
     comment.delete()
     messages.success(request ,"Comment Silindi:)")
     return redirect("user:profile")
 
+
+@login_required(login_url="user:need_account")
+@login_required(login_url="user:need_account")
 def updatecomment(request,id):
     comment = CommentModel.objects.get(id=id)
     form = forms.CommentForm(instance=comment)
@@ -70,9 +77,28 @@ def areas(request):
 def area_detail(request,id):
     area = models.RayonModel.objects.get(id=id)
     comments = models.CommentModel.objects.filter(rayon=area)
-    
+    # form = forms.CommentForm()
+    # if request.method == "POST":
+    #     form = forms.CommentForm(request.POST,request.FILES)
+    #     if form.is_valid:
+    #         instance = form.save(commit=False)
+    #         instance.yazan = request.user
+    #         instance.rayon = area
+    #         instance.save()
+    #         return redirect("areas:area_detail/area.id")
+
     context = {
         "area":area,
-        "comments":comments
+        "comments":comments,
+        # "form":form,
     }
     return render(request,"area_detail.html",context)
+
+
+def regions(request):
+    regions = models.RegionModel.objects.all()
+
+    context = {
+        "regions":regions,
+    }
+    return render(request,"regions.html",context)

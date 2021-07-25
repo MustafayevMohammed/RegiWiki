@@ -10,4 +10,5 @@ urlpatterns = [
     path("update-task/<id>",views.updatecomment,name="update_comment"),
     path("areas/",views.areas,name="areas"),
     path("area/<id>",views.area_detail,name="area_detail"),
+    path("regions/",views.regions,name="regions"),
 ]

@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}Regionlar{% endblock title %}
+
+{% block body %}
+    <link rel="stylesheet" href="{% static 'regions.css' %}">
+        <div class="regionlar">
+            {% for region in regions %}
+                    <div class="container">
+                        <section>
+                            <div class="region-ad">
+                                <h4>{{region.ad}}</h4>
+                                <hr>
+                            </div>
+                            <div class="region-rayonlari">
+                                {{region}} Regionunun rayonlari:
+                                <br>
+                                {% for rayon in region.rayonlar.all %}
+                                    <a href="{% url 'areas:area_detail' rayon.id %}"><span class="region-rayonlari-child">{{rayon}}, </span></a>
+                                {% endfor %}
+                                <hr>
+                            </div>
+                            <div class="region-sahe">
+                                <span class="region-melumat-sahe">Regionun sahesi 1000 km ile:</span>
+                                    <span class="region-melumat-sahe-child">{{region.sahe}}</span>
+                                <hr>
+                            </div>
+                            <div class="region-ehali">
+                                <span class="region-melumat-ehali">
+                                    Regionun ehalisi 100 min nefer ile:                           
+                                </span>
+                                    <span class="region-melumat-ehali-child">{{region.ehali}}</span>
+                                <hr>
+                            </div>
+                        </section>
+                    </div>
+                <hr>
+            {% endfor %}
+        </div>
+{% endblock body %}

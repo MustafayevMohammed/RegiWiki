@@ -1,5 +1,6 @@
 {% extends 'layout.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block title %}{{area}} Rayonu/Seheri{% endblock title %}
 
 {% block body %}
@@ -51,8 +52,5 @@
             <div style="text-align:center;" class="alert alert-danger">{{area}} Haqqinda Hec Bir Komment Yoxdur</div>
         {% endif %}
         <hr>
-        <div class="add-comment container">
-            <a href="{% url 'areas:addcomment' %}" class="btn btn-block btn-danger">Komment Elave Et</a>
-        </div>
     </div>
 {% endblock body %}
