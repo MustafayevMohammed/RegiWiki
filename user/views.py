@@ -14,6 +14,7 @@ def need_account(request):
 
 def logout(request):
     django_logout(request)
+    messages.success(request,"Ugurla Cixis Etdiniz :)")
     return redirect("areas:index")
 
 

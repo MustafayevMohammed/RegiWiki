@@ -22,8 +22,16 @@
         {% include "includes/sidebar.html" %}
     </div>
 
+
     <div class="content">
         <div class="container">
+            {% if messages %}
+                <div class="alert alert-success" role="alert" style="text-align:center;">
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                </div>
+            {% endif %}
             <div class="context">
                 <h1>RegiWiki Nedir?</h1>
                 <hr>

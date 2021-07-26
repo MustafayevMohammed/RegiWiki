@@ -11,4 +11,6 @@ urlpatterns = [
     path("areas/",views.areas,name="areas"),
     path("area/<id>",views.area_detail,name="area_detail"),
     path("regions/",views.regions,name="regions"),
+    path("posts/",views.posts,name="posts"),
+    path("conversation/<id>",views.addConversation,name="conversation")
 ]

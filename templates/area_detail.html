@@ -12,7 +12,7 @@
                 <h3>{{area.ad}}</h3>
             </div>
             <div class="rayon-sekil">
-                <img src="{{area.sekil.url}}" alt="">
+                <img class="rayon-sekil-child" src="{{area.sekil.url}}" alt="">
             </div>
             <hr>
             <div class="context">
@@ -31,13 +31,17 @@
                         <h5>
                             {{comment.basliq}}
                         </h5>
-                    </div>   
+                    </div> 
 
-                    <div class="comment-context">
+                    <span class="komment-sekil">
+                        <img class="komment-sekil-child" src="{{comment.sekil.url}}" alt="">
+                    </span>
+                    
+                    <span class="comment-context">
                         <p>
                             {{comment.mezmun}}
                         </p>
-                    </div>
+                    </span>
                     <hr>
                     <span class="comment-author">
                         {{comment.yazan}}
@@ -46,6 +50,7 @@
                     <span class="comment-date">
                         {{comment.created_date}}
                     </span>
+
                 </div>
             {% endfor %}
         {% else %}

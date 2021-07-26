@@ -7,7 +7,7 @@ body{
     text-align: center;
 }
 
-img{
+.rayon-sekil-child{
     border: 1px solid #E84D54;
     height: 400px;
     max-height: 400px;
@@ -44,3 +44,17 @@ img{
 .comment-author{
     opacity: 0.8;
 }
+
+.komment-sekil-child{
+    height: 200px;
+    width: 300px;
+    border-radius: 4px;
+
+}
+
+p{
+    top: 0%;
+    left: 0%;
+    display: inline;
+}
+

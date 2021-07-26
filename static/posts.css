@@ -1,0 +1,38 @@
+body{
+    background-color: #363a88;
+    color: white;
+}
+
+.container{
+    background-color: #4f5292;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.comment-title{
+    text-align: center;
+}
+
+.comment-date{
+    float:right;
+    opacity: 0.8;
+}
+
+.comment-author{
+    opacity: 0.8;
+}
+
+.comment-sekil{
+    text-align: center;
+
+}
+
+.comment-sekil-child{
+    height: 400px;
+    width: 500px;
+    border-radius: 4px;
+}
+
+p{
+    display: inline;
+}

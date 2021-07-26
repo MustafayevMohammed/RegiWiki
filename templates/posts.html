@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}Postlar{% endblock title %}
+
+{% block body %}
+<link rel="stylesheet" href="{% static 'posts.css' %}">
+
+    {% if comments %}
+        {% for comment in comments %}
+            <div class="container">
+                <div class="comments">
+                    <div class="comment-title">
+                        <h5>{{comment.basliq}} | {{comment.rayon}}</h5>
+                    </div>
+                    <hr>
+                    <div class="comment-sekil">
+                        <img class="comment-sekil-child" src="{{comment.sekil.url}}" alt="">
+                    </div>
+                    <hr>
+                    <span class="comment-content">
+                        <p>{{comment.mezmun}}</p>
+                    </span>
+                    <hr>
+                    <span class="comment-author">{{comment.yazan}}</span>
+                    <span class="comment-date">{{comment.created_date}}</span>
+                </div>
+            </div>
+            <hr>
+        {% endfor %}
+    
+    {% else %}
+        <div class="alert alert-info">Hec Bir Yazi Yoxdur</div>
+    {% endif %}
+
+{% endblock body %}

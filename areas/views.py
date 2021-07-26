@@ -102,3 +102,17 @@ def regions(request):
         "regions":regions,
     }
     return render(request,"regions.html",context)
+
+
+def posts(request):
+    comments = models.CommentModel.objects.all()
+    context = {
+        "comments":comments,
+    }
+    return render(request,"posts.html",context)
+
+def addConversation(request,id):
+    yazi = models.CommentModel.objects.get(id=id)
+    
+    context = {}
+    return render(request,"addconv.html",context)

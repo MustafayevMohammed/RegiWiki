@@ -5,12 +5,12 @@
 {% block body %}
 <link rel="stylesheet" href="{% static 'profile.css' %}">
 <section>
-    
+
     <span class="stats">
         Yazdiginiz Comment Sayi:<span class="stat-num">{{comments.count}}</span>
 
     </span>
-    
+
     <span class="profile_pic">
         <img src="{{request.user.prophile_photo.url}}">
     </span>
@@ -46,6 +46,7 @@
         </div>
         <hr>
         <div class="buttons">
+            {% comment %} <a href="{% url 'comment.sekil' %}" class="btn btn-info">Sekile Bax</a> {% endcomment %}
             <a class="btn btn-primary" href="{% url 'areas:update_comment' comment.id %}">Guncelle</a>
             <a class="btn btn-danger" href="{% url 'areas:delete_comment' comment.id %}">Sil</a>
         </div>
