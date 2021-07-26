@@ -1,21 +1,10 @@
 {% extends 'layout.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
-{% block title %}Muzakire{% endblock title %}
+{% block title %}Yaziniza Gelen Kommentler{% endblock title %}
 
 {% block body %}
 <link rel="stylesheet" href="{% static 'addconv.css' %}">
-
-        <h4 style="text-align:center;">Muzakiereye Qatil</h4>
-        <div class="conv-form container">
-            <form action="{% url 'areas:posts' %}" method="post">
-                {% csrf_token %}
-                {{form|crispy}}
-                <input type="submit" value="Gonder" class="btn btn-danger btn-block">
-            </form>
-
-        </div>
-        <hr>
         <h4 style="text-align:center;">Yazilanlar</h4>
         <div class="conversations">
             
@@ -39,4 +28,4 @@
             {% else %}
                 <div class="alert alert-info">Hec Bir Muzakire aparilmayib ilk yazan sen ol! :)</div>
             {% endif %}
-{% endblock body %}
+{% endblock %}

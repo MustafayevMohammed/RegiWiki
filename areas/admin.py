@@ -12,7 +12,7 @@ class RayonAdmin(admin.ModelAdmin):
 
 @admin.register(models.CommentModel)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ["rayon","basliq","created_date"]
+    list_display = ["rayon","basliq","created_date","id"]
 
 @admin.register(models.ConversationModel)
 class ConversationModel(admin.ModelAdmin):

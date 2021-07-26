@@ -22,7 +22,10 @@ class CommentForm(forms.ModelForm):
 class ConversationForm(forms.ModelForm):
     class Meta:
         widgets = {
-            "mezmun" : forms.Textarea(attrs={"class":"fields"}),
+            "mezmun" : forms.Textarea(attrs={"class":"fields",
+            "cols":81,
+            "rows":6,
+            "style":"resize:none;"}),
         }
         model = models.ConversationModel
         fields = ["mezmun"]

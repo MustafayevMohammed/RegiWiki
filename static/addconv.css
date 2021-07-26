@@ -1,0 +1,55 @@
+body{
+    background-color: #363a88;
+    color: white;
+}
+
+.container{
+    background-color: #4f5292;
+    padding: 20px;
+    border: 0.6px solid #E84D54;
+    border-radius: 6px;
+}
+
+.conv-content{
+    font-size: 20px;
+}
+
+.conv-date{
+    float: right;
+    opacity: 0.8;
+}
+
+.conv-author{
+    opacity: 0.8;
+}
+
+.conversations{
+    margin-top: 40px;
+
+}
+
+
+
+.fields{
+    background-color: #494eb8 ;
+    color: white;
+
+}
+
+.fields:hover{
+    background-color: #494eb8;
+    color: white;
+
+}
+
+.fields:focus{
+    background-color: #494eb8;
+    color: white;
+}
+
+.requiredField{
+    color: white;
+}
+.asteriskField{
+    color: #E84D54;
+}

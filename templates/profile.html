@@ -12,7 +12,7 @@
     </span>
 
     <span class="profile_pic">
-        <img src="{{request.user.prophile_photo.url}}">
+        <img class="profile-photo" src="{{request.user.prophile_photo.url}}">
     </span>
     <div class="username">
         {{request.user.username}}
@@ -37,8 +37,11 @@
         <div class="title">
             {{comment.basliq}} | {{comment.rayon}}
         </div>
-        <br>
-
+        <hr>
+        <div class="comment-sekil">
+            <img class="comment-sekil-child" src="{{comment.sekil.url}}" alt="">
+        </div>
+        <hr>
         <div class="comments">
             <p>
                 {{comment.mezmun}}
@@ -49,6 +52,8 @@
             {% comment %} <a href="{% url 'comment.sekil' %}" class="btn btn-info">Sekile Bax</a> {% endcomment %}
             <a class="btn btn-primary" href="{% url 'areas:update_comment' comment.id %}">Guncelle</a>
             <a class="btn btn-danger" href="{% url 'areas:delete_comment' comment.id %}">Sil</a>
+            <a href="{% url 'areas:conversation' comment.id%}"><i class="far fa-comments btn btn-info comment"></i></a>
+
         </div>
     </div>
     <hr>

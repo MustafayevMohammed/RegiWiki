@@ -111,8 +111,29 @@ def posts(request):
     }
     return render(request,"posts.html",context)
 
+
 def addConversation(request,id):
     yazi = models.CommentModel.objects.get(id=id)
+    convs = models.ConversationModel.objects.filter(comment=yazi)
+    form = forms.ConversationForm()
+    if request.method == "POST":
+        form = forms.ConversationForm(request.POST)
+        if form.is_valid:
+            instance = form.save(commit=False)
+            instance.comment = yazi    
+            instance.yazan = request.user
+            instance.save()
+            return redirect("areas:posts")
     
-    context = {}
+    context = {
+        "form":form,
+        "convs":convs,
+    }
     return render(request,"addconv.html",context)
+
+
+def deleteConversation(request,id):
+    conversation = models.ConversationModel.objects.get(id=id)
+    conversation.delete()
+    messages.success(request,"Yaziniz Ugurla Silindi")
+    return redirect("areas:posts")

@@ -5,7 +5,6 @@ from django.forms.forms import Form
 from .models import CustomUserModel
 
 
-
 class RegisterForm(UserCreationForm):
 
     #image = forms.FileField(required=False,label="Image*",widget=forms.FileInput(attrs={'class':'fields'}))

@@ -8,6 +8,13 @@
     {% if comments %}
         {% for comment in comments %}
             <div class="container">
+                {% if messages %}
+                    <div class="alert alert-success" role="alert" style="text-align:center;">
+                        {% for message in messages %}
+                        {{ message }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
                 <div class="comments">
                     <div class="comment-title">
                         <h5>{{comment.basliq}} | {{comment.rayon}}</h5>
@@ -24,6 +31,8 @@
                     <span class="comment-author">{{comment.yazan}}</span>
                     <span class="comment-date">{{comment.created_date}}</span>
                 </div>
+                <hr>
+                <a href="{% url 'areas:conversation' comment.id%}"><i class="far fa-comments btn btn-info"></i></a>
             </div>
             <hr>
         {% endfor %}

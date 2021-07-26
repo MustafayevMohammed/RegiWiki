@@ -29,10 +29,11 @@ body{
 
 .comment-sekil-child{
     height: 400px;
-    width: 500px;
+    width: 600px;
     border-radius: 4px;
 }
 
 p{
     display: inline;
 }
+

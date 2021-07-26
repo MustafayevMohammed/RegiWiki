@@ -2,6 +2,8 @@ from django.core.exceptions import ValidationError
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login
 from django.contrib.auth import logout as django_logout
+
+from areas import models
 from . import forms
 from django.contrib import messages
 from areas.models import CommentModel
@@ -60,3 +62,12 @@ def profile(request):
         "comments":comments
     }
     return render(request,"profile.html",context)
+
+def profileConversation(request,id):
+    yazi = models.CommentModel.objects.get(id=id)
+    conversations = models.ConversationModel.objects.filter(comment=yazi)
+
+    context = {
+        "conversations":conversations,
+    }
+    return render(request,"convdetail.html",context)

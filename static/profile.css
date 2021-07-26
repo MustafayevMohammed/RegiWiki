@@ -1,4 +1,4 @@
-img{
+.profile-photo{
     height: 200px;
     border-radius: 420px;
     width: 200px;
@@ -57,4 +57,21 @@ section{
 
 .buttons{
     text-align: right;
+}
+
+
+.comment-sekil{
+    text-align: center;
+
+}
+
+.comment-sekil-child{
+    height: 400px;
+    width: 600px;
+    border-radius: 4px;
+}
+
+
+.comment{
+    float: left;
 }
