@@ -127,7 +127,7 @@ def addConversation(request,id):
     
     context = {
         "form":form,
-        "convs":convs,
+        "convs":convs
     }
     return render(request,"addconv.html",context)
 

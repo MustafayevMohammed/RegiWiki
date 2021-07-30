@@ -7,14 +7,14 @@
 <link rel="stylesheet" href="{% static 'addconv.css' %}">
 
         <h4 style="text-align:center;">Muzakiereye Qatil</h4>
-        <div class="conv-form container">
-            <form action="{% url 'areas:posts' %}" method="post">
+        <form method="post" action="">
+            <div class="conv-form container">
                 {% csrf_token %}
                 {{form|crispy}}
                 <input type="submit" value="Gonder" class="btn btn-danger btn-block">
-            </form>
+            </div>
+        </form>
 
-        </div>
         <hr>
         <h4 style="text-align:center;">Yazilanlar</h4>
         <div class="conversations">
