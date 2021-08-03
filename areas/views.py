@@ -45,7 +45,7 @@ def updatecomment(request,id):
     form = forms.CommentForm(instance=comment)
     
     if request.method == "POST":
-        form = forms.CommentForm(request.POST,instance=comment)
+        form = forms.CommentForm(request.POST,request.FILES,instance=comment)
         if form.is_valid():
             form.save()
             return redirect("/user/profile/")

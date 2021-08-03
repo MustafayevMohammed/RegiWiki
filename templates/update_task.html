@@ -4,10 +4,11 @@
 
 {% block body %}
     <link rel="stylesheet" href="{% static 'update.css' %}">
-    <form method="post" action="" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" action="">
         <div class="container">
             {% csrf_token %}
             {{form|crispy}}
             <input type="submit" value="Elave Et" class="btn btn-danger btn-block">
         </div>
+    </form>
 {% endblock body %}
