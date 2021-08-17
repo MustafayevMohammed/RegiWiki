@@ -63,11 +63,11 @@ def profile(request):
     }
     return render(request,"profile.html",context)
 
-def profileConversation(request,id):
-    yazi = models.CommentModel.objects.get(id=id)
-    conversations = models.ConversationModel.objects.filter(comment=yazi)
+# def profileConversation(request,id):
+#     yazi = models.CommentModel.objects.get(id=id)
+#     conversations = models.ConversationModel.objects.filter(comment=yazi)
 
-    context = {
-        "conversations":conversations,
-    }
-    return render(request,"convdetail.html",context)
+#     context = {
+#         "conversations":conversations,
+#     }
+#     return render(request,"convdetail.html",context)

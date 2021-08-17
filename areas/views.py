@@ -10,6 +10,8 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
+    if request.user.is_authenticated:
+        return redirect("areas:posts")
     return render(request,"index.html")
 
 @login_required(login_url="user:need_account")
@@ -39,7 +41,6 @@ def deletecomment(request,id):
 
 
 @login_required(login_url="user:need_account")
-@login_required(login_url="user:need_account")
 def updatecomment(request,id):
     comment = CommentModel.objects.get(id=id)
     form = forms.CommentForm(instance=comment)
@@ -61,7 +62,7 @@ def areas(request):
     areas = models.RayonModel.objects.all()
     if sorgu:
         areas = areas.filter(
-            Q(ad__icontains=sorgu)
+            Q(ad__startswith=sorgu)
         ).distinct()
 
     sehife = request.GET.get("sehife")
@@ -111,7 +112,7 @@ def posts(request):
     }
     return render(request,"posts.html",context)
 
-
+@login_required(login_url="user:need_account")
 def addConversation(request,id):
     yazi = models.CommentModel.objects.get(id=id)
     convs = models.ConversationModel.objects.filter(comment=yazi)
@@ -131,7 +132,7 @@ def addConversation(request,id):
     }
     return render(request,"addconv.html",context)
 
-
+@login_required(login_url="user:need_account")
 def deleteConversation(request,id):
     conversation = models.ConversationModel.objects.get(id=id)
     conversation.delete()
